@@ -6,9 +6,9 @@ namespace Qubus\Exception;
 
 use Exception;
 use Stringable;
+use Throwable;
 
 use function sprintf;
-use Throwable;
 
 class BaseException extends Exception implements Stringable
 {
@@ -41,7 +41,8 @@ class BaseException extends Exception implements Stringable
         if (! $message) {
             throw new self(
                 sprintf(
-                    'Unknown %s', static::class
+                    'Unknown %s',
+                    static::class
                 )
             );
         }
