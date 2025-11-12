@@ -7,7 +7,7 @@ namespace Qubus\Exception\Http;
 use Psr\Http\Message\UriInterface;
 use Throwable;
 
-interface HttpException
+interface HttpException extends Throwable
 {
     public function __construct(
         UriInterface|string|null $uri = null,
