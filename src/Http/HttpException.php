@@ -5,37 +5,42 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http;
 
 use Psr\Http\Message\UriInterface;
+use Qubus\Exception\Exception;
 use Throwable;
 
-interface HttpException extends Throwable
+class HttpException extends Exception implements Psr7Exception
 {
     public function __construct(
-        UriInterface|string|null $uri = null,
+        protected UriInterface|string|null $uri = null,
         string $message = '',
         ?Throwable $previous = null,
-        array $headers = [],
-        int $code = 0
-    );
+        protected array $headers = [],
+        protected $code = 0
+    ) {
+        parent::__construct($message, $code, $previous);
+    }
 
     /**
-     * Return a string representation of the exception.
-     *
-     * @return string
+     * @inheritDoc
      */
-    public function __toString();
+    public function getStatusCode(): int
+    {
+        return $this->code;
+    }
 
     /**
-     * Return the status code.
+     * @inheritDoc
      */
-    public function getStatusCode(): int;
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
 
     /**
-     * Return the response headers.
+     * @inheritDoc
      */
-    public function getHeaders(): array;
-
-    /**
-     * Return the uri to redirect to.
-     */
-    public function getUri(): UriInterface|string|null;
+    public function getUri(): UriInterface|string|null
+    {
+        return $this->uri;
+    }
 }
