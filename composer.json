@@ -14,7 +14,8 @@
         "issues": "https://github.com/QubusPHP/Exception/issues"
     },
     "require": {
-        "php": ">=8.4"
+        "php": ">=8.4",
+        "psr/http-message": "^1 || ^2"
     },
     "require-dev": {
         "qubus/qubus-coding-standard": "^2"
