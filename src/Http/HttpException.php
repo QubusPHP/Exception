@@ -13,27 +13,10 @@ class HttpException extends Exception implements Psr7Exception
     public function __construct(
         protected UriInterface|string|null $uri = null,
         string $message = '',
+        protected $code = 400,
         ?Throwable $previous = null,
-        protected array $headers = [],
-        protected $code = 0
     ) {
         parent::__construct($message, $code, $previous);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getStatusCode(): int
-    {
-        return $this->code;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getHeaders(): array
-    {
-        return $this->headers;
     }
 
     /**

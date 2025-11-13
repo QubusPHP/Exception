@@ -12,9 +12,8 @@ interface Psr7Exception extends Throwable
     public function __construct(
         UriInterface|string|null $uri = null,
         string $message = '',
+        int $code = 0,
         ?Throwable $previous = null,
-        array $headers = [],
-        int $code = 0
     );
 
     /**
@@ -23,16 +22,6 @@ interface Psr7Exception extends Throwable
      * @return string
      */
     public function __toString();
-
-    /**
-     * Return the status code.
-     */
-    public function getStatusCode(): int;
-
-    /**
-     * Return the response headers.
-     */
-    public function getHeaders(): array;
 
     /**
      * Return the uri to redirect to.
