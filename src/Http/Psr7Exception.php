@@ -9,13 +9,6 @@ use Throwable;
 
 interface Psr7Exception extends Throwable
 {
-    public function __construct(
-        UriInterface|string|null $uri = null,
-        string $message = '',
-        int $code = 0,
-        ?Throwable $previous = null,
-    );
-
     /**
      * Return a string representation of the exception.
      *
