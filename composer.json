@@ -28,7 +28,8 @@
     "scripts": {
         "test": "vendor/bin/pest --min=50 --colors=always",
         "cs-check": "phpcs",
-        "cs-fix": "phpcbf"
+        "cs-fix": "phpcbf",
+        "qubestan": "phpstan analyse -l 5"
     },
     "config": {
         "optimize-autoloader": true,
