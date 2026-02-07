@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace Qubus\Exception;
 
-use Exception;
-use Stringable;
-use Throwable;
-
 use function sprintf;
 
-class BaseException extends Exception implements Stringable
+class BaseException extends \Exception implements \Stringable
 {
     /**
      * Exception message.
@@ -36,7 +32,7 @@ class BaseException extends Exception implements Stringable
     /**
      * @throws BaseException
      */
-    public function __construct(?string $message = '', int $code = 0, ?Throwable $previous = null)
+    public function __construct(?string $message = '', int $code = 0, ?\Throwable $previous = null)
     {
         if (! $message) {
             throw new self(

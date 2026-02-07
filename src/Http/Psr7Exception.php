@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http;
 
 use Psr\Http\Message\UriInterface;
-use Throwable;
 
-interface Psr7Exception extends Throwable
+interface Psr7Exception extends \Throwable
 {
     /**
      * Return a string representation of the exception.

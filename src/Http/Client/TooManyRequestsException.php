@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http\Client;
 
 use Qubus\Exception\Exception;
-use Throwable;
 
 class TooManyRequestsException extends Exception
 {
@@ -14,7 +13,7 @@ class TooManyRequestsException extends Exception
         . 'completed because you are making too many requests to this '
         . 'system. Please try again later.',
         int $code = 429,
-        ?Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
     }

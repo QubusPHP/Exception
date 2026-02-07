@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http;
 
 use Psr\Http\Message\UriInterface;
-use Throwable;
 
 class GoneHttpException extends HttpException
 {
     public function __construct(
         UriInterface|string|null $uri = null,
         string $message = 'Forbidden',
-        ?Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($uri, $message, 410, $previous);
     }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http\Server;
 
 use Qubus\Exception\Exception;
-use Throwable;
 
 class GatewayTimeoutException extends Exception
 {
@@ -13,7 +12,7 @@ class GatewayTimeoutException extends Exception
         string $message = 'This server is acting as a gateway or proxy to another server '
         . 'but the underlying server or process failed to respond in time.',
         int $code = 504,
-        ?Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
     }

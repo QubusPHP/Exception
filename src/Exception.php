@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Qubus\Exception;
 
-use Throwable;
-
 use function sprintf;
 
 class Exception extends \Exception
@@ -34,7 +32,7 @@ class Exception extends \Exception
     /**
      * @throws Exception
      */
-    public function __construct(?string $message = '', int $code = 0, ?Throwable $previous = null)
+    public function __construct(?string $message = '', int $code = 0, ?\Throwable $previous = null)
     {
         if (! $message) {
             throw new self(

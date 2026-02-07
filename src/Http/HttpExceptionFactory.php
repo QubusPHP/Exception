@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Qubus\Exception\Http;
 
-use Throwable;
-
 class HttpExceptionFactory
 {
     public static function make(
         int $status,
         ?string $uri = null,
         string $message = '',
-        ?Throwable $previous = null
+        ?\Throwable $previous = null
     ): HttpException {
         return match ($status) {
             400 => new BadRequestHttpException($uri, $message, $previous),

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Qubus\Exception\Http\Client;
 
 use Qubus\Exception\Exception;
-use Throwable;
 
 class NotFoundException extends Exception
 {
@@ -14,7 +13,7 @@ class NotFoundException extends Exception
         . 'the entity is not accessible using requested credentials because of a recent state '
         . 'change or because the entity cannot be found at all.',
         int $code = 404,
-        ?Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
     }
